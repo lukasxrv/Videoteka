@@ -1,0 +1,46 @@
+﻿@model Videoteka.DataModel.Film
+
+@{
+    ViewData["Title"] = "Odstranění záznamu";
+}
+
+<h2>Smazat záznam o filmu</h2>
+
+<h3>Skutečně chcete smazat tento záznam o filmu?</h3>
+<div>
+    <h4>Film</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazev)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nazev)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RokVydani)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RokVydani)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Zanr)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Zanr)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Hodnoceni)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Hodnoceni)
+        </dd>
+    </dl>
+
+    <form asp-action="@nameof(Videoteka.Controllers.HomeController.Delete)">
+        <div class="form-actions no-color">
+            <input type="submit" value="Smazat" class="btn-primary" /> |
+            <a asp-action="Index">Zpět</a>
+        </div>
+    </form>
+</div>

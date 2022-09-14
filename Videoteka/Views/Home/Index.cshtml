@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Videoteka.DataModel.Film>
+
+@{
+    ViewData["Title"] = "Videotéka - Přehled záznamů o filmech";
+}
+
+<h2>Přehled záznaml o filmech</h2>
+
+<p>
+    <a asp-action="Create">Nový záznam</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nazev)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RokVydani)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Zanr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hodnoceni)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nazev)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RokVydani)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Zanr)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hodnoceni)
+                </td>
+                <td>
+                    <a asp-action="@nameof(Videoteka.Controllers.HomeController.Edit)" asp-route-id="@item.IDFilm">Upravit</a> |
+                    <a asp-action="@nameof(Videoteka.Controllers.HomeController.Detail)" asp-route-id="@item.IDFilm">Detail</a> |
+                    <a asp-action="@nameof(Videoteka.Controllers.HomeController.Delete)" asp-route-id="@item.IDFilm">Smazat</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
